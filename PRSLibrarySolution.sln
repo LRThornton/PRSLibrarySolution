@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRSLibrary", "PRSLibrary\PRSLibrary.csproj", "{F787D000-B1B4-48ED-848E-3881E26657B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPRSLibrary", "TestPRSLibrary\TestPRSLibrary.csproj", "{29DA3AAD-D7C4-4573-897B-09213AFB2576}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F787D000-B1B4-48ED-848E-3881E26657B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F787D000-B1B4-48ED-848E-3881E26657B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F787D000-B1B4-48ED-848E-3881E26657B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F787D000-B1B4-48ED-848E-3881E26657B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29DA3AAD-D7C4-4573-897B-09213AFB2576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29DA3AAD-D7C4-4573-897B-09213AFB2576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29DA3AAD-D7C4-4573-897B-09213AFB2576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29DA3AAD-D7C4-4573-897B-09213AFB2576}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62CE3AA4-8E27-4104-A444-DC3E91113EDE}
+	EndGlobalSection
+EndGlobal
