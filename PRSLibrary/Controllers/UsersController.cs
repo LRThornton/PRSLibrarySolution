@@ -22,7 +22,7 @@ namespace PRSLibrary.Controllers {
         public User GetByPk(int id) {
             return _context.Users.Find(id);
         }
-
+        //this method makes the create 
         public User Create(User user) {
             if(user is null) {
                 throw new ArgumentNullException("user");
@@ -33,6 +33,19 @@ namespace PRSLibrary.Controllers {
             _context.Users.Add(user);
             _context.SaveChanges();
             return user;
+        }
+        //this method will allow changes to be made to a user
+        public void Change(User user) {
+            _context.SaveChanges();
+        }
+        //this one deletes void means it will not return anything
+        public void Remove(int id) {
+            var user = _context.Users.Find(id);
+            if(user is null) {
+                throw new Exception("User not found!");
+            }
+            _context.Users.Remove(user);
+            _context.SaveChanges();
         }
     }
 }
