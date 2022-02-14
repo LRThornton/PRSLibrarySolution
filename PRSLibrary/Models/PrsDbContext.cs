@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 namespace PRSLibrary.Models {
     public class PrsDbContext : DbContext {
 
+        public virtual DbSet<User>Users { get; set; }
+
         public PrsDbContext() { }
 
         public PrsDbContext(DbContextOptions<PrsDbContext> options) : base(options) { }
@@ -19,6 +21,13 @@ namespace PRSLibrary.Models {
                     );
 
             }
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder) {
+             //makes Username in User unique  Username is the name of the column, User is the name of the class
+            builder.Entity<User>(e => {
+                e.HasIndex(p => p.Username).IsUnique(true);
+            });
         }
     }
 }
