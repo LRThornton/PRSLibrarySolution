@@ -14,15 +14,35 @@ namespace TestPRSLibrary {
 
             var context = new PrsDbContext();
 
-            var userCtrl = new UsersController(context);
+            var reqCtrl = new RequestsController(context);
 
-            var user = userCtrl.Login("sa", "sax");
-
-            if (user is null) {
-                Console.WriteLine("User not found");
-            }   else {
-                Console.WriteLine(user.Username);
+            var reqs = reqCtrl.GetRequestsInReview(7); //this defines the reviewers id
+            foreach(var req in reqs) {
+                Console.WriteLine($"{req.Description} {req.Status} {req.Total} {req.UserId}");
             }
+
+            //var req = reqCtrl.GetByPk(3);
+
+            ////reqCtrl.SetReview(req);
+            ////reqCtrl.SetApproved(req);
+            //reqCtrl.SetRejected(req);
+
+            //req = reqCtrl.GetByPk(3);
+
+            //Console.WriteLine($"{req.Description} {req.Status} {req.Total}");
+
+
+
+
+            //var userCtrl = new UsersController(context);
+
+            //var user = userCtrl.Login("sa", "sax");
+
+            //if (user is null) {
+            //    Console.WriteLine("User not found");
+            //}   else {
+            //    Console.WriteLine(user.Username);
+            //}
 
 
             //var username = "gdoud";

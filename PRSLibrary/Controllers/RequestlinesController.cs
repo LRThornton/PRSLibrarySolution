@@ -29,7 +29,7 @@ namespace PRSLibrary.Controllers {
                             .Include(x => x.Request)
                             .SingleOrDefault(x => x.Id == id);
         }
-        //this method creates new product
+        //this method creates new request
         public Requestline Create(Requestline requestline) {
             if (requestline is null) {
                 throw new ArgumentException("Requestline");

@@ -13,7 +13,7 @@ namespace PRSLibrary.Controllers {
         public UsersController(PrsDbContext context) {
             this._context = context;            
         }
-
+        //this code sets it so you need a username and password
         public User Login(string username, string password) {
             return _context.Users
                     .SingleOrDefault(x => x.Username == username 
