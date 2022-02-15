@@ -11,9 +11,15 @@ namespace PRSLibrary.Controllers {
         private readonly PrsDbContext _context;  //this is an internal variable for this class only
 
         public UsersController(PrsDbContext context) {
-            this._context = context;
-            
+            this._context = context;            
         }
+
+        public User Login(string username, string password) {
+            return _context.Users
+                    .SingleOrDefault(x => x.Username == username 
+                                            && x.Password == password);
+        }
+
         //this method returns all of the users
         public IEnumerable<User> GetAll(UsersController userCtrl) {
             return _context.Users.ToList();

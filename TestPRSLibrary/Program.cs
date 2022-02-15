@@ -1,6 +1,7 @@
 ﻿using PRSLibrary.Controllers;
 using PRSLibrary.Models;
 using System;
+using System.Linq;
 
 namespace TestPRSLibrary {
     class Program {
@@ -13,19 +14,40 @@ namespace TestPRSLibrary {
 
             var context = new PrsDbContext();
 
-            var prodCtrl = new ProductsController(context);
+            var userCtrl = new UsersController(context);
 
-            var products = prodCtrl.GetAll();
+            var user = userCtrl.Login("sa", "sax");
 
-            foreach(var p in products) {
-                Print(p); 
+            if (user is null) {
+                Console.WriteLine("User not found");
+            }   else {
+                Console.WriteLine(user.Username);
             }
 
-            var product = prodCtrl.GetByPk(2);
 
-            if(product is not null) {
-                Print(product);
-            }
+            //var username = "gdoud";
+            //var password = "password";
+            //           //this will search for the above variable names in the database
+            //context.Users.SingleOrDefault(x => x.Username == username && x.Password == password);
+            //// or this next method
+            //var user = from u in context.Users  //this is called the query syntax
+            //        where u.Username == username && u.Password == password
+            //        select u;
+              
+
+            //var prodCtrl = new ProductsController(context);
+
+            //var products = prodCtrl.GetAll();
+
+            //foreach(var p in products) {
+            //    Print(p); 
+            //}
+
+            //var product = prodCtrl.GetByPk(2);
+
+            //if(product is not null) {
+            //    Print(product);
+            //}
 
 
 
