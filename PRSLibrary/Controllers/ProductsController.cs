@@ -1,4 +1,5 @@
-﻿using PRSLibrary.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using PRSLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,19 @@ namespace PRSLibrary.Controllers {
 
         private readonly PrsDbContext _context;  //this is an internal variable for this class only
 
+      
         public ProductsController(PrsDbContext context) {
             this._context = context;
 
         }
-        //this method returns all of the users
-        public IEnumerable<Product> GetAll(ProductsController productCtrl) {
-            return _context.Products.ToList();
+        //this method returns all of the products
+        public IEnumerable<Product> GetAll() {
+            return _context.Products.Include(x => x.Vendor).ToList();
         }
         //this method lets you pull by primary key
         public Product GetByPk(int id) {
-            return _context.Products.Find(id);
+            return _context.Products.Include(x => x.Vendor)
+                                .SingleOrDefault(x => x.Id == id);
         }
         //this method creates new product
         public Product Create(Product product) {
@@ -31,12 +34,12 @@ namespace PRSLibrary.Controllers {
             if (product.Id != 0) {
                 throw new ArgumentException("Product.Id must be zero!");
             }
-            _context.Products.Add(product);
-            _context.SaveChanges();
-            return product;
+                _context.Products.Add(product);
+                _context.SaveChanges();
+                 return product;
         }
-        //this method will allow changes to be made to a user
-        public void Change(User user) {
+        //this method will allow changes to be made to a product
+        public void Change(Product product) {
             _context.SaveChanges();
         }
         //this one deletes  // void means it will not return anything

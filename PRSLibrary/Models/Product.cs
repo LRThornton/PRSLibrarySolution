@@ -20,13 +20,11 @@ namespace PRSLibrary.Models {
         public string Unit { get; set; }
         [StringLength(255)]
         public string Photopath { get; set; }
+
         public int VendorId { get; set; }
-        //virtual instance required for EF to recognize Fk
+        //virtual instance required for EF to recognize Fk, virtual means it wont be in the database, just in the class
         public virtual Vendor Vendor { get; set; }
 
         public Product() { }
-
-
-
     }
 }
