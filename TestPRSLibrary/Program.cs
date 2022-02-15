@@ -13,8 +13,8 @@ namespace TestPRSLibrary {
             var userCtrl = new UsersController(context);
             //this creates a new user
             var newUser = new User() {
-                Id = 0, Username = "zz", Password = "xx",
-                Firstname = "User", Lastname = "zz", Phone = "211", Email = "xx@user.com", 
+                Id = 0, Username = "Mk", Password = "xx",
+                Firstname = "User", Lastname = "thorn", Phone = "211", Email = "xx@user.com", 
                 IsReviewer = false, IsAdmin = false
             };
 
@@ -39,10 +39,12 @@ namespace TestPRSLibrary {
                 Console.WriteLine($"User33: {user33.Firstname} {user33.Lastname}");
             }
 
+            userCtrl.Remove(5);
+
             var users = userCtrl.GetAll(userCtrl);
 
             foreach(var user in users) {
-                Console.WriteLine($"{user.Firstname} {user.Lastname}");
+                Console.WriteLine($"{user.Id} {user.Firstname} {user.Lastname}");
 
             }
         }

@@ -38,7 +38,7 @@ namespace PRSLibrary.Controllers {
         public void Change(User user) {
             _context.SaveChanges();
         }
-        //this one deletes void means it will not return anything
+        //this one deletes  // void means it will not return anything
         public void Remove(int id) {
             var user = _context.Users.Find(id);
             if(user is null) {
